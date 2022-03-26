@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,8 +7,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <script src="{{ asset('apexcharts.min.js') }}"> </script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="{{ asset('/js/apexcharts.min.js') }}"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <style>
@@ -128,14 +129,19 @@
         </div> -->
 
 
+
+
         <div class="container-fluid text-center">
             <div class="row my-5">
                 <h3> Grafico Temperatura em tempo real</h3>
                 <div class="col-6 mx-auto">
                     <div id="grafico"></div>
                 </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" onclick="iniciar()">Start</button>
+                    <button class="btn btn-primary" onclick="parar()">Stop</button>
+                </div>
             </div>
-
         </div>
 
 
@@ -143,18 +149,19 @@
     </body>
 
     <script>
-        let dados = [0,0,0,0,0,0,0,0,0,0]
+        let dados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let meuIntervalo = null;
         let el = document.querySelector("#grafico");
         let options = {
             chart: {
-                type: 'bar',
+                type: 'area',
                 animations: {
-                    enable: false,
+                    enabled: false
                 }
             },
             series: [{
-                    name: 'Dados',
-                    data: dados
+                name: 'Dados',
+                data: dados
             }],
             dataLabels: {
                 enabled: false
@@ -166,9 +173,36 @@
                 min: 0,
                 max: 100
             }
-        }
-        let chart = new ApexCharts(el, options)
+        };
+        let chart = new ApexCharts(el, options);
         chart.render();
 
+        // ------------------------------------
+        function iniciar(){
+            meuIntervalo = setInterval(minhaFuncao, 1000);
+        }
+
+        // ------------------------------------
+        function parar(){
+            clearInterval(meuIntervalo);
+        }
+
+        // ------------------------------------
+        function minhaFuncao(){
+            axios.get('http://localhost/agricity/public/ajax/script.php')
+                .then(function(response){
+                    dados = response.data;
+                    chart.updateSeries(
+                        [
+                            {
+                                data: response.data
+                            }
+                        ]
+                    );
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+        }
     </script>
 </html>
