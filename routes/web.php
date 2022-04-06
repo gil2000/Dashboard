@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Temperatura;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,13 @@ use App\Http\Controllers\Temperatura;
 |
 */
 
-Route::view('/', 'welcome');
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
+//Admin Routes
+Route::prefix('admin')->middleware(['auth', 'auth.isAdmin'])->name('admin.')->group(function (){
+    Route::resource('/users', UserController::class);
+});
 
