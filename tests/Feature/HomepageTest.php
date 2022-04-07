@@ -19,6 +19,6 @@ class HomepageTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSeeText('Grafico');
+        $response->assertSeeText('Grafico Temperatura em tempo real');
     }
 }

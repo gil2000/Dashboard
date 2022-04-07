@@ -14,9 +14,11 @@ class Temperatura extends Model
 
     protected $fillable = [
         'SensorID',
-        'Date_n_Time',
+        'created_at',
         'Temperature',
     ];
+
+
 
 
 }

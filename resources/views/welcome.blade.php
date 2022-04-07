@@ -20,66 +20,52 @@
     <script>
         let dados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         let meuIntervalo = null;
-        let el = document.querySelector("#grafico");
-        var options = {
-            series: [{
-                name: "Dados",
-                data: dados
-            }],
+        let el = document.querySelector('#grafico');
+        let options = {
             chart: {
-                height: 350,
-                type: 'line',
-                zoom: {
+                type: 'area',
+                height: '400px',
+                animations: {
                     enabled: false
                 }
             },
+            series: [{
+                name: 'Dados',
+                data: dados
+            }],
             dataLabels: {
                 enabled: false
             },
-            stroke: {
-                curve: 'straight'
-            },
-            title: {
-                text: 'Product Trends by Month',
-                align: 'left'
-            },
-            grid: {
-                row: {
-                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                    opacity: 0.5
-                },
-            },
             xaxis: {
-                categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                categories: ['1','2','3','4','5','6','7','8','9','10']
             },
             yaxis: {
                 min: 0,
                 max: 100
             }
         };
-
         let chart = new ApexCharts(el, options);
         chart.render();
-
-        // ------------------------------------
-        function iniciar(){
-            meuIntervalo = setInterval(minhaFuncao, 1000);
-        }
 
         // ------------------------------------
         function parar(){
             clearInterval(meuIntervalo);
         }
+        function iniciar(){
+            meuIntervalo = setInterval(minhaFuncao, 1000);
+        }
 
         // ------------------------------------
         function minhaFuncao(){
-            axios.get('{{asset('ajax/script.php')}}')
+
+            axios.get()
                 .then(function(response){
                     dados = response.data;
+
                     chart.updateSeries(
                         [
                             {
-                                data: response.data,
+                                data: response.data
                             }
                         ]
                     );
@@ -87,8 +73,8 @@
                 .catch(function(error){
                     console.log(error);
                 })
-
         }
+
     </script>
 
 @endsection

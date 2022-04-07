@@ -5,8 +5,8 @@ use EasyPDO\EasyPDO;
 require "EasyPDO.php";
 
 $bd = new EasyPDO();
-$resultados = $bd->select("SELECT * FROM (SELECT * FROM dht22_temperature_data ORDER BY Date_n_Time DESC LIMIT 10) a ORDER BY Date_n_Time");
-$dados = [];
+$resultados = $bd->select("");
+
 
 if($bd->affectedRows < 10){
 
