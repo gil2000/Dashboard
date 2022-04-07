@@ -20,17 +20,15 @@ class ChartsApiController extends Controller
         $valor = DB::table('dht22_temperature_data')
                     ->latest()
                     ->limit(10)
-                    ->get()
-                    ->pluck('Temperature')
-                    ->toArray();
+                    ->get();
 
         //$temperatura = $valor->pluck('Temperature');
 
+        $id = $valor->pluck('id');
+        $temp = $valor->pluck('Temperature');
 
 
-
-
-        return response($valor);
+        return response()->json(compact('id', 'temp'));
 
 
 

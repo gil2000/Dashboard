@@ -47,18 +47,11 @@
         let chart = new ApexCharts(el, options);
         chart.render();
 
-        // ------------------------------------
-        function parar(){
-            clearInterval(meuIntervalo);
-        }
-        function iniciar(){
-            meuIntervalo = setInterval(minhaFuncao, 1000);
-        }
 
         // ------------------------------------
         function minhaFuncao(){
 
-            axios.get()
+            axios.get({{ route('api.chart') }})
                 .then(function(response){
                     dados = response.data;
 
@@ -73,7 +66,14 @@
                 .catch(function(error){
                     console.log(error);
                 })
+
+            setInterval(minhaFuncao, 1000)
         }
+
+        minhaFuncao();
+        setInterval(() => {
+            updateChart();
+        }, 1000);
 
     </script>
 
