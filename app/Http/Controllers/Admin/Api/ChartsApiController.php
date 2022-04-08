@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Temperatura;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\Types\String_;
-use Illuminate\Database\Query\Builder;
+
 
 class ChartsApiController extends Controller
 {
@@ -23,7 +20,6 @@ class ChartsApiController extends Controller
                     ->get();
 
         //$temperatura = $valor->pluck('Temperature');
-
         $id = $valor->pluck('id');
         $temp = $valor->pluck('Temperature');
 
