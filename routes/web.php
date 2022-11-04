@@ -4,6 +4,8 @@ use App\Http\Controllers\User\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\OutdoorTemperature;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,8 @@ use App\Http\Controllers\Dashboard;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $stations = \App\Models\Station::all();
+    return view('index')->with(['stations' => $stations]);
 });
 
 //Route::resource('/admin/users', UserController::class);
@@ -30,5 +33,8 @@ Route::prefix('admin')->middleware(['auth', 'auth.isAdmin', 'verified'])->name('
    Route::resource('/users', UserController::class);
 });
 
-Route::get('dashboard', [Dashboard::class, 'index'])->name('dashboard');
+Route::get('dashboard/{id}', [Dashboard::class, 'index'])->name('dashboard');
 Route::get('TemperatureDashboard', [Dashboard::class, 'index'])->name('temperatureDashboard');
+
+
+Route::get('outdoortemperature', [OutdoorTemperature::class, 'index'])->name('outdoortemperature');

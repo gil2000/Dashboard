@@ -47,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->attributes['password'] = Hash::make('password');
     }*/
 
+
     public function roles() {
         return $this->belongsToMany('App\Models\Role');
     }
@@ -60,5 +61,13 @@ class User extends Authenticatable implements MustVerifyEmail
     //Check if the user has any given rule ($role) and returns a bool
     public function hasAnyRoles( array $role) {
         return null !== $this->roles()->whereIn('name', $role)->first();
+    }
+
+    public static function search($search) {
+
+        return empty($search) ? static::query()
+            : static::query()->where('id', 'like', '%'.$search.'%')
+                ->orWhere('name', 'like', '%'.$search.'%')
+                ->orWhere('email', 'like', '%'.$search.'%');
     }
 }
