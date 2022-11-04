@@ -1,15 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\OutdoorHumidity;
-use App\Models\OutdoorTemperature;
 use App\Models\Station;
 use App\Models\ViewCurrentValueMSG1;
 use App\Models\ViewCurrentValueMSG2;
-use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
+
 
 
 class Dashboard extends Controller

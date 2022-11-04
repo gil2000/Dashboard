@@ -64,7 +64,7 @@
                     <span class="app-brand-text demo menu-text fw-bolder ms-2">Agricity</span>
                 </a>
                 <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <i style="color: white" class="fa-solid fa-arrow-left-long"></i>
                 </a>
             </div>
             <div class="menu-inner-shadow"></div>
