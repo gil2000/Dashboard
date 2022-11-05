@@ -13,6 +13,10 @@ class Dashboard extends Controller
 {
     public function index($id)
     {
+        if (Station::checkIfExists($id)) {
+            return redirect()->route('dashboard', 1);
+        }
+
 
         if (Cache::has('msg01Values') && Cache::get('msg01Values')->last()->idEstacao == $id) {
 
@@ -22,7 +26,7 @@ class Dashboard extends Controller
         } else {
 
             $msg01Values = ViewCurrentValueMSG1::latest()->take(10)->where('idEstacao', $id)->get()->reverse();
-            Cache::put('msg01Values', $msg01Values, 120);
+            Cache::put('msg01Values', $msg01Values, 2);
 
         }
 
@@ -33,7 +37,7 @@ class Dashboard extends Controller
         } else {
 
             $msg02Values = ViewCurrentValueMSG2::latest()->take(10)->where('idEstacao', $id)->get()->reverse();
-            Cache::put('msg02Values', $msg02Values, 120);
+            Cache::put('msg02Values', $msg02Values, 2);
 
         }
 
@@ -47,7 +51,7 @@ class Dashboard extends Controller
         $dataTemperature = $msg01Values->pluck('outdoortemperature');
         $first = $dataTemperature->first();
         $last = $dataTemperature->last();
-        $tendency =round(( (($last - $first)/$first) * 100) , 1 )  ;
+        $tendency = $first == 0 ? 0 : round(( (($last - $first)/$first) * 100) , 1 )  ;
 
         $labelsHumidity = $msg01Values->pluck('created_at');
         $labelsHumidity = $labelsHumidity->map(function ($order) {
