@@ -3,12 +3,14 @@
 use App\Http\Controllers\User\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Dashboard;
-use App\Http\Controllers\OutdoorTemperature;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OutdoorTemperatureController;
+use App\Http\Controllers\WindDirectionController;
 
 
 /*
-|--------------------------------------------------------------------------
+|------------------------clear
+clear--------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -33,8 +35,9 @@ Route::prefix('admin')->middleware(['auth', 'auth.isAdmin', 'verified'])->name('
    Route::resource('/users', UserController::class);
 });
 
-Route::get('dashboard/{id}', [Dashboard::class, 'index'])->name('dashboard');
-Route::get('TemperatureDashboard', [Dashboard::class, 'index'])->name('temperatureDashboard');
+Route::get('dashboard/{id}', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('TemperatureDashboard', [DashboardController::class, 'index'])->name('temperatureDashboard');
 
 
-Route::get('outdoortemperature', [OutdoorTemperature::class, 'index'])->name('outdoortemperature');
+Route::get('outdoortemperature', [OutdoorTemperatureController::class, 'index'])->name('outdoortemperature');
+Route::get('winddirection', [WindDirectionController::class, 'index'])->name('winddirection');

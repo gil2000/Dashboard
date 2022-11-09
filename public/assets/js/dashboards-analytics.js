@@ -1,5 +1,5 @@
 /**
- * Dashboard Analytics
+ * DashboardController Analytics
  */
 
 'use strict';

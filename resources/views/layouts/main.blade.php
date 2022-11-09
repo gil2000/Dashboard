@@ -20,10 +20,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -127,7 +124,7 @@
                         <i class="fa-solid fa-wind fa-xl"></i>
                         <div class="m-2">Wind Speed</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('winddirection') }}" class="menu-link">
                         <i class="fa-solid fa-location-arrow fa-xl"></i>
                         <div class="m-2">Wind Direction</div>
                     </a>
@@ -177,7 +174,8 @@
             <!-- Content wrapper -->
             <div class="content-wrapper">
                 <!-- Content -->
-                <div class="container-lg">
+                <div class="container-lg pt-5">
+                    @include('partials.alerts')
                     @yield('content')
                 </div>
                 <!-- / Content -->
@@ -196,7 +194,7 @@
 <!-- / Layout wrapper -->
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
-<script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
@@ -215,9 +213,7 @@
 <script src="{{ asset('libs/fontawesome/js/all.min.js') }}"></script>
 
 
-
 @livewireScripts
-
 @stack('scripts')
 </body>
 </html>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Agricity Dashboard'),
+    'name' => env('APP_NAME', 'Agricity DashboardController'),
 
     /*
     |--------------------------------------------------------------------------
