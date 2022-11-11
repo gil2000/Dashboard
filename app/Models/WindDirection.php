@@ -13,10 +13,21 @@ class WindDirection extends Model
     {
 
         $winddirections = WindDirection::query();
+        $id = Station::all();
 
-        if (!empty($station)) {
-            $winddirections = $winddirections->where('idEstacao', '=', $station);
+        if ($station != null) {
+            foreach ($station as $id) {
+                if ($id == '1') {
+                    $winddirections = $winddirections->where('idEstacao', '=', 1);
+                }
+                if ($id == '2') {
+                    $winddirections = $winddirections->where('idEstacao', '=', 2);
+                }
+
+            }
         }
+
+
 
         if (!empty($from) && !empty($to)) {
             $winddirections = $winddirections->whereBetween('created_at', [$from.' 00:00:00', $to.' 23:59:59']);

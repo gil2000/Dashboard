@@ -33,7 +33,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                         °</h4>
                                     <small class="me-3">Last Day Analytics- </small>
                                     <small
-                                        class="@if($tendencyTemperature > 0) text-success @else text-danger  @endif">@if($tendencyTemperature > 0 ) (+{{ $tendencyTemperature }}%) @else() ({{ $tendencyTemperature }}%) @endif
+                                        class="@if($tendencyTemperature > 0) text-success @elseif($tendencyTemperature == 0) text-info @else text-danger  @endif">@if($tendencyTemperature > 0 ) (+{{ $tendencyTemperature }}%) @else() ({{ $tendencyTemperature }}%) @endif
                                     </small>
                                 </div>
                                 <div class="card-icon">
@@ -67,7 +67,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                     <h4 class="card-title mb-2">{{ $dataHumidity->last() }}
                                         %</h4>
                                     <small class="me-3">Last Day Analytics- </small>
-                                    <small class="@if($tendencyHumidity > 0) text-success @else text-danger  @endif">@if($tendencyHumidity > 0 ) (+{{ $tendencyHumidity }}%) @else() {{ $tendencyHumidity }}% @endif </small>
+                                    <small class="@if($tendencyHumidity > 0) text-success @elseif($tendencyHumidity == 0) text-info  @else text-danger  @endif">@if($tendencyHumidity > 0 ) (+{{ $tendencyHumidity }}%) @else() {{ $tendencyHumidity }}% @endif </small>
                                 </div>
                                 <div class="card-icon">
                 <span class="badge bg-label-primary rounded">
@@ -99,7 +99,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">Today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +264,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +309,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +354,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +398,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
                                     <a class="dropdown-item" href="{{ route('winddirection') }}">View More</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Todays Graphic</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">today Graphic</a>
                                 </div>
                             </div>
                         </div>
@@ -435,8 +435,8 @@
                             </div>
                         </div>
                     </div>
-                    <div  class="card-body">
-                        <canvas id="myChart1" height="80"></canvas>
+                    <div id="myChart1"  class="card-body">
+
                     </div>
                 </div>
             </div>
@@ -448,17 +448,15 @@
                             <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button"
                                     id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                Today
+                                Last Values
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                                <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                                <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-body">
-                        <canvas id="myChart2" height="80"></canvas>
+                    <div id="myChart2" class="card-body">
                     </div>
                 </div>
             </div>
@@ -470,16 +468,14 @@
                             <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button"
                                     id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                Today
+                                Last Values
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                                <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                                <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <canvas id="myChart3" height="80"></canvas>
+                    <div id="myChart3" class="card-body">
                     </div>
                 </div>
             </div>
@@ -491,16 +487,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart4" height="80"></canvas>
+                <div id="myChart4" class="card-body">
                 </div>
             </div>
         </div>
@@ -511,16 +505,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart5" height="80"></canvas>
+                <div id="myChart5" class="card-body">
                 </div>
             </div>
         </div>
@@ -531,16 +523,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart6" height="80"></canvas>
+                <div id="myChart6" class="card-body">
                 </div>
             </div>
         </div>
@@ -551,16 +541,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart7" height="80"></canvas>
+                <div id="myChart7" class="card-body">
                 </div>
             </div>
         </div>
@@ -571,16 +559,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart8" height="80"></canvas>
+                <div id="myChart8" class="card-body">
                 </div>
             </div>
         </div>
@@ -591,16 +577,14 @@
                     <div class="dropdown my-auto me-3">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
+                            Last Values
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
-                            <a class="dropdown-item" href="javascript:void(0);">Ultima Semana</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Ultimo Mês</a>
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChart9" height="80"></canvas>
+                <div id="myChart9" class="card-body">
                 </div>
             </div>
         </div>
@@ -614,459 +598,446 @@
 @push('scripts')
 
     <script>
-        setInterval(function() {
-            window.location.reload();
-        }, 120000);
 
-        const data = {
-            labels: @json($labels01) ,
-            datasets: [{
-                label: '',
-                data: @json($dataTemperature) ,
-                backgroundColor: [
-                    'rgb(255,83,31)',
-                ],
-                borderColor: [
-                    'rgb(255,83,31)',
+        // setInterval(function() {
+        //     window.location.reload();
+        // }, 120000);
 
-                ],
-                borderWidth: 3
-            }]
-
-
-        };
-
-        //config
-        const config = {
-            type: 'line',
-            data,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options = {
+            series: [{
+                name: "Temperature",
+                data: @json($dataTemperature)
+            }],
+            chart: {
+                height: 200,
+                type: 'area',
+            },
+            toolbar: {
+                autoSelected: 'zoom'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#ea2e0d']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#ffffff'],
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '°C'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels01),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart1 = new Chart(
-            document.getElementById('myChart1'),
-            config
-        );
-
-
-        var url = "http://agricity.test/api/teste/1"
-        // function to update our chart
-        // var getData = function() {
-        //     $.getJSON(url, data).done(function(response) {
-        //
-        //         myChart1.data.labels = response.labelsTemperature;
-        //         myChart1.data.datasets[0].data = response.dataTemperature;
-        //         myChart1.update();
-        //     });
-        // };
-        //
-        // setInterval(getData, 1000 * 60 * 2);
-        //
-
-        const data2 = {
-            labels: @json($labels01),
-            datasets: [{
-                label: 'Average Humidity',
-                data: @json($dataHumidity),
-                backgroundColor: [
-                    'rgb(123,223,238)',
-                ],
-                borderColor: [
-                    'rgb(123,223,238)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config2 = {
-            type: 'line',
-            data: data2,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options2 = {
+            series: [{
+                name: "Humidity",
+                data: @json($dataHumidity)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#53e1d7']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '%'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels01),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart2 = new Chart(
-            document.getElementById('myChart2'),
-            config2
-        );
-
-
-        const data3 = {
-            labels: @json($labels01),
-            datasets: [{
-                label: 'Average Precipitation',
-                data: @json($dataPrecipitation),
-                backgroundColor: [
-                    'rgb(165,234,58)',
-                ],
-                borderColor: [
-                    'rgb(165,234,58)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config3 = {
-            type: 'line',
-            data: data3,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options3 = {
+            series: [{
+                name: "Precipitation",
+                data: @json($dataPrecipitation)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#399de5']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'mm/m²'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels01),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart3 = new Chart(
-            document.getElementById('myChart3'),
-            config3
-        );
-
-        const data4 = {
-            labels: @json($labels02),
-            datasets: [{
-                label: 'Average WindSpeed',
-                data: @json($dataWindSpeed),
-                backgroundColor: [
-                    'rgb(81,229,213)',
-                ],
-                borderColor: [
-                    'rgb(81,229,213)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config4 = {
-            type: 'line',
-            data: data4,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options4 = {
+            series: [{
+                name: "Wind Speed",
+                data: @json($dataWindSpeed)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#86a7af']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'km/h'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels02),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart4 = new Chart(
-            document.getElementById('myChart4'),
-            config4
-        );
-
-        const data5 = {
-            labels: @json($labels02),
-            datasets: [{
-                label: 'Average WindSpeed',
-                data: @json($dataBarometricPressure),
-                backgroundColor: [
-                    'rgb(199,230,239)',
-                ],
-                borderColor: [
-                    'rgb(0,0,0)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config5 = {
-            type: 'line',
-            data: data5,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options5 = {
+            series: [{
+                name: "Barometric Pressure",
+                data: @json($dataBarometricPressure)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#000000']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'hPa'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels02),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart5 = new Chart(
-            document.getElementById('myChart5'),
-            config5
-        );
-
-        const data6 = {
-            labels: @json($labels02),
-            datasets: [{
-                label: 'Average WindSpeed',
-                data: @json($dataSoilHumidity),
-                backgroundColor: [
-                    'rgb(199,230,239)',
-                ],
-                borderColor: [
-                    'rgb(106,178,239)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config6 = {
-            type: 'line',
-            data: data6,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options6 = {
+            series: [{
+                name: "Soil Humidity",
+                data: @json($dataSoilHumidity)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#5a44ee']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '%'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels02),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart6 = new Chart(
-            document.getElementById('myChart6'),
-            config6
-        );
-
-        const data7 = {
-            labels: @json($labels02),
-            datasets: [{
-                label: 'Average Soil Temperature',
-                data: @json($dataSoilTemperature),
-                backgroundColor: [
-                    'rgb(199,230,239)',
-                ],
-                borderColor: [
-                    'rgb(140,34,34)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config7 = {
-            type: 'line',
-            data: data7,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options7 = {
+            series: [{
+                name: "Soil Temperature",
+                data: @json($dataSoilTemperature)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#fc4e4e']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'ºC'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels02),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart7 = new Chart(
-            document.getElementById('myChart7'),
-            config7
-        );
-
-        const data8 = {
-            labels: @json($labels01),
-            datasets: [{
-                label: 'Average Soil Temperature',
-                data: @json($dataSunLightUVI),
-                backgroundColor: [
-                    'rgb(199,230,239)',
-                ],
-                borderColor: [
-                    'rgb(227,243,113)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config8 = {
-            type: 'line',
-            data: data8,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options8 = {
+            series: [{
+                name: "Sun Light UVI",
+                data: @json($dataSunLightUVI)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#ffb800']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'UV'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels01),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart8 = new Chart(
-            document.getElementById('myChart8'),
-            config8
-        );
-
-        const data9 = {
-            labels: @json($labels01),
-            datasets: [{
-                label: 'Average Soil Temperature',
-                data: @json($dataSunLightVisible),
-                backgroundColor: [
-                    'rgb(199,230,239)',
-                ],
-                borderColor: [
-                    'rgb(255,184,0)',
-
-                ],
-                borderWidth: 3
-            }]
         };
 
-        //config
-        const config9 = {
-            type: 'line',
-            data: data9,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        const options9 = {
+            series: [{
+                name: "Sun Light Visible",
+                data: @json($dataSunLightVisible)
+            }],
+            chart: {
+                height: 200,
+                type: 'line',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['#e0894c']
+            },
+            markers: {
+                hover: {
+                    sizeOffset: 4
+                }
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '%'
-                        }
-                    }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: @json($labels01),
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
                 }
             }
-        }
-        //render init
-        const myChart9 = new Chart(
-            document.getElementById('myChart9'),
-            config9
-        );
+        };
+
+        const myChart1 = new ApexCharts(document.getElementById('myChart1'), options);
+        myChart1.render();
+
+        const myChart2 = new ApexCharts(document.getElementById('myChart2'), options2);
+        myChart2.render();
+
+        const myChart3 = new ApexCharts(document.getElementById('myChart3'), options3);
+        myChart3.render();
+
+        const myChart4 = new ApexCharts(document.getElementById('myChart4'), options4);
+        myChart4.render();
+
+        const myChart5 = new ApexCharts(document.getElementById('myChart5'), options5);
+        myChart5.render();
+
+        const myChart6 = new ApexCharts(document.getElementById('myChart6'), options6);
+        myChart6.render();
+
+        const myChart7 = new ApexCharts(document.getElementById('myChart7'), options7);
+        myChart7.render();
+
+        const myChart8 = new ApexCharts(document.getElementById('myChart8'), options8);
+        myChart8.render();
+
+        const myChart9 = new ApexCharts(document.getElementById('myChart9'), options9);
+        myChart9.render();
+
+        {{--const data = {--}}
+        {{--    labels: @json($labels01) ,--}}
+        {{--    datasets: [{--}}
+        {{--        label: '',--}}
+        {{--        data: @json($dataTemperature) ,--}}
+        {{--        backgroundColor: [--}}
+        {{--            'rgb(255,83,31)',--}}
+        {{--        ],--}}
+        {{--        borderColor: [--}}
+        {{--            'rgb(255,83,31)',--}}
+
+        {{--        ],--}}
+        {{--        borderWidth: 3--}}
+        {{--    }]--}}
+
+
+        {{--};--}}
+
+        {{--//config--}}
+        {{--const config = {--}}
+        {{--    type: 'line',--}}
+        {{--    data,--}}
+        {{--    options: {--}}
+        {{--        plugins: {--}}
+        {{--            legend: {--}}
+        {{--                display: false--}}
+        {{--            }--}}
+        {{--        },--}}
+        {{--        scales: {--}}
+        {{--            x: {--}}
+        {{--                title: {--}}
+        {{--                    display: true,--}}
+        {{--                    text: 'Time'--}}
+        {{--                }--}}
+        {{--            },--}}
+        {{--            y: {--}}
+        {{--                title: {--}}
+        {{--                    display: true,--}}
+        {{--                    text: '°C'--}}
+        {{--                }--}}
+        {{--            }--}}
+        {{--        }--}}
+        {{--    }--}}
+        {{--}--}}
+        {{--//render init--}}
+        {{--const myChart1 = new Chart(--}}
+        {{--    document.getElementById('myChart1'),--}}
+        {{--    config--}}
+        {{--);--}}
+
+        {{--var url = "http://agricity.test/api/teste/1"--}}
+        {{--// function to update our chart--}}
+        {{--// var getData = function() {--}}
+        {{--//     $.getJSON(url, data).done(function(response) {--}}
+        {{--//--}}
+        {{--//         myChart1.data.labels = response.labelsTemperature;--}}
+        {{--//         myChart1.data.datasets[0].data = response.dataTemperature;--}}
+        {{--//         myChart1.update();--}}
+        {{--//     });--}}
+        {{--// };--}}
+        {{--//--}}
+        {{--// setInterval(getData, 1000 * 60 * 2);--}}
+        {{--//--}}
 
 
     </script>

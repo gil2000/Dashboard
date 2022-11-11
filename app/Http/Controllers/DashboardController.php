@@ -52,18 +52,13 @@ class DashboardController extends Controller
         $dataBarometricPressure = $msg02Values->pluck('barometricpressure');
         $dataSoilHumidity = $msg02Values->pluck('soilhumidity');
         $dataSoilTemperature = $msg02Values->pluck('soiltemperature');
-        $dataSunLightUVI = $msg01Values->pluck('sunlightUVIndex');
+        $dataSunLightUVI = $msg01Values->pluck('sunlightuvindex');
         $dataSunLightVisible = $msg01Values->pluck('sunlightvisible');
 
 
         $labels01 = $msg01Values->pluck('created_at');
-        $labels01 = $labels01->map(function ($order) {
-            return substr($order, 11, 5);
-        });
         $labels02 = $msg02Values->pluck('created_at');
-        $labels02 = $labels02->map(function ($order) {
-            return substr($order, 11, 5);
-        });
+
         $stations = Station::all();
 
         $first = $dataTemperature->first();

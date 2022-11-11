@@ -12,13 +12,15 @@ class WindDirectionFilter extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $station;
+    public $station = false;
     public $from;
     public $to;
 
 
+
     public function render()
     {
+
         return view('livewire.wind-direction')->with([
             'winddirections' => WindDirection::search($this->from, $this->to, $this->station)
                 ->orderBy('created_at', 'desc')

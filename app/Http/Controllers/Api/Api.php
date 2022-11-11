@@ -3,25 +3,39 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\OutdoorTemperature;
 use App\Models\ViewCurrentValueMSG1;
+use Carbon\Carbon;
 
 
 class Api extends Controller
 {
     public function temperature($id) {
 
-        $msg01Values = ViewCurrentValueMSG1::latest()->take(10)->where('idEstacao', $id)->get()->reverse();
+        $label = [];
+        $data = [];
 
-        $labelsTemperature = $msg01Values->pluck('created_at');
-        $labelsTemperature = $labelsTemperature->map(function ($order) {
-            return substr($order, 11, 5);
-        });
-        $dataTemperature = $msg01Values->pluck('outdoortemperature');
+
+        $dias = OutdoorTemperature::whereBetween('created_at', [now()->subDays(7), now()] )
+            ->orderBy('created_at')
+            ->get()
+            ->where('idEstacao', '=', $id)
+            ->groupBy(function ($date) {
+               return Carbon::parse($date->created_at)->format('d');
+            });
+
+
+
+
+        foreach ($dias as $dia => $infos) {
+            $label[] = $dia;
+            $data[] = $infos->pluck('valor')->avg();
+        }
 
 
         return response()->json([
-            'labelsTemperature' => $labelsTemperature,
-            'dataTemperature' => $dataTemperature
+            'labels' => $label,
+            'data' => $data
         ]);
 
     }

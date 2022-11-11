@@ -204,16 +204,17 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="{{ asset('libs/charts/chart.min.js') }}"></script>
+
 
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
 <!-- Page JS -->
 <script src="{{ asset('libs/fontawesome/js/all.min.js') }}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 @livewireScripts
 @stack('scripts')
+@stack('scripts1')
 </body>
 </html>
