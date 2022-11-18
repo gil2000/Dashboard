@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OutdoorTemperature;
+
+use App\Models\BarometricPressure;
 use App\Models\Station;
 use Carbon\Carbon;
 
 
-class OutdoorTemperatureController extends Controller
+class BarometricPressureController extends Controller
 {
     public function index(){
 
@@ -15,7 +16,7 @@ class OutdoorTemperatureController extends Controller
 
         foreach ($stations as $station) {
             $var = [];
-            ${'values'.$station->id} = OutdoorTemperature::all()
+            ${'values'.$station->id} = BarometricPressure::all()
                 ->where('idEstacao', '=', $station->id)
                 ->groupBy(function ($date) {
                     return Carbon::parse($date->created_at)->format('Y-m-d');
@@ -60,8 +61,8 @@ class OutdoorTemperatureController extends Controller
 //        }
 
 
-        return view('user.outdoortemperature')->with([
+        return view('user.barometricpressure')->with([
             'all' => $all
-            ]);
+        ]);
     }
 }

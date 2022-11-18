@@ -1,7 +1,7 @@
 <div class="card shadow">
     <div class="card-body row">
             <div class="col-md-3 dropdown my-auto">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-sm btn-secondary dropdown-toggle ms-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Stations
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

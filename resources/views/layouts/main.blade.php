@@ -92,15 +92,15 @@
                         <i class="fa-solid fa-temperature-three-quarters fa-xl"></i>
                         <div class="m-2">Outdoor Temperature</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('outdoorhumidity') }}" class="menu-link">
                         <i class="fa-solid fa-droplet fa-xl"></i>
                         <div class="m-2">Outdoor Humidity</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('precipitation') }}" class="menu-link">
                         <i class="fa-solid fa-cloud-rain fa-xl"></i>
                         <div class="m-2">Precipitation</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('barometricpressure') }}" class="menu-link">
                         <i class="fa-solid fa-gauge fa-xl"></i>
                         <div class="m-2">Barometric Pressure</div>
                     </a>

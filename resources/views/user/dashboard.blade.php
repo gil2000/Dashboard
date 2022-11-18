@@ -599,9 +599,9 @@
 
     <script>
 
-        // setInterval(function() {
-        //     window.location.reload();
-        // }, 120000);
+         setInterval(function() {
+             window.location.reload();
+         }, 120000);
 
         const options = {
             series: [{
@@ -635,6 +635,11 @@
             xaxis: {
                 type: 'datetime',
                 categories: @json($labels01),
+            },
+            yaxis: {
+                title: {
+                    text: 'ºC',
+                },
             },
             tooltip: {
                 x: {
@@ -673,6 +678,11 @@
             xaxis: {
                 type: 'datetime',
                 categories: @json($labels01),
+            },
+            yaxis: {
+                title: {
+                    text: '%',
+                },
             },
             tooltip: {
                 x: {
@@ -751,6 +761,11 @@
                 type: 'datetime',
                 categories: @json($labels02),
             },
+            yaxis: {
+                title: {
+                    text: 'Km/h',
+                },
+            },
             tooltip: {
                 x: {
                     format: 'dd/MM/yy HH:mm'
@@ -788,6 +803,11 @@
             xaxis: {
                 type: 'datetime',
                 categories: @json($labels02),
+            },
+            yaxis: {
+                title: {
+                    text: 'hPa',
+                },
             },
             tooltip: {
                 x: {
@@ -827,6 +847,11 @@
                 type: 'datetime',
                 categories: @json($labels02),
             },
+            yaxis: {
+                title: {
+                    text: '%',
+                },
+            },
             tooltip: {
                 x: {
                     format: 'dd/MM/yy HH:mm'
@@ -864,6 +889,11 @@
             xaxis: {
                 type: 'datetime',
                 categories: @json($labels02),
+            },
+            yaxis: {
+                title: {
+                    text: 'ºC',
+                },
             },
             tooltip: {
                 x: {
@@ -903,6 +933,11 @@
                 type: 'datetime',
                 categories: @json($labels01),
             },
+            yaxis: {
+                title: {
+                    text: 'UV',
+                },
+            },
             tooltip: {
                 x: {
                     format: 'dd/MM/yy HH:mm'
@@ -940,6 +975,11 @@
             xaxis: {
                 type: 'datetime',
                 categories: @json($labels01),
+            },
+            yaxis: {
+                title: {
+                    text: '%',
+                },
             },
             tooltip: {
                 x: {

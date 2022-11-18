@@ -7,7 +7,7 @@ use App\Models\ViewCurrentValueMSG2;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Facades\DB;
 
 
 class DashboardController extends Controller
@@ -16,30 +16,45 @@ class DashboardController extends Controller
 
     public function index($id)
     {
+
         if (Station::checkIfExists($id)) {
-            return redirect()->route('dashboard', 1);
+            return redirect()
+                ->route('dashboard', 1);
         }
 
+        if (Cache::has('msg01Values') && Cache::get('msg01Values')->last()) {
 
-        if (Cache::has('msg01Values') && Cache::get('msg01Values')->last()->idEstacao == $id) {
-
-            $msg01Values = Cache::get('msg01Values')->where('idEstacao', $id);
+            $msg01Values = Cache::get('msg01Values')
+                ->where('idEstacao', $id);
 
 
         } else {
 
-            $msg01Values = ViewCurrentValueMSG1::latest()->take(10)->where('idEstacao', $id)->get()->reverse();
+            $msg01Values = DB::table('msgid1')
+                ->whereDate('created_at', Carbon::today())
+                ->where('idEstacao', $id)
+                ->orderBy('created_at')
+                ->get()
+                ->reverse();
+
             Cache::put('msg01Values', $msg01Values, 120);
 
         }
 
-        if (Cache::has('msg02Values') && Cache::get('msg02Values')->last()->idEstacao == $id) {
+        if (Cache::has('msg02Values') && Cache::get('msg02Values')) {
 
-            $msg02Values = Cache::get('msg02Values')->where('idEstacao', $id);
+            $msg02Values = Cache::get('msg02Values')
+                ->where('idEstacao', $id);
 
         } else {
 
-            $msg02Values = ViewCurrentValueMSG2::latest()->take(10)->where('idEstacao', $id)->get()->reverse();
+            $msg02Values = DB::table('msgid2')
+                ->whereDate('created_at', Carbon::today())
+                ->where('idEstacao', $id)
+                ->orderBy('created_at')
+                ->get()
+                ->reverse();
+
             Cache::put('msg02Values', $msg02Values, 120);
 
         }

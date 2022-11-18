@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OutdoorTemperatureController;
 use App\Http\Controllers\WindDirectionController;
-
+use App\Http\Controllers\OutdoorHumidityController;
+use App\Http\Controllers\PrecipitationController;
+use App\Http\Controllers\BarometricPressureController;
 
 /*
 |------------------------clear
@@ -41,3 +43,6 @@ Route::get('TemperatureDashboard', [DashboardController::class, 'index'])->name(
 
 Route::get('outdoortemperature', [OutdoorTemperatureController::class, 'index'])->name('outdoortemperature');
 Route::get('winddirection', [WindDirectionController::class, 'index'])->name('winddirection');
+Route::get('outdoorhumidity', [OutdoorHumidityController::class, 'index'])->name('outdoorhumidity');
+Route::get('precipitation', [PrecipitationController::class, 'index'])->name('precipitation');
+Route::get('barometricpressure', [BarometricPressureController::class, 'index'])->name('barometricpressure');
