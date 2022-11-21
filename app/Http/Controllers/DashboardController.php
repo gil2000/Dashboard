@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\Station;
 use App\Models\ViewCurrentValueMSG1;
-use App\Models\ViewCurrentValueMSG2;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+
 
 
 class DashboardController extends Controller
@@ -58,6 +58,22 @@ class DashboardController extends Controller
             Cache::put('msg02Values', $msg02Values, 120);
 
         }
+
+
+        $lat = DB::table('estacao')
+            ->where('id', $id)
+            ->value('lat');
+
+        $lon = DB::table('estacao')
+            ->where('id', '=', $id)
+            ->value('lon');
+
+
+        $location = [
+            $lat, $lon
+        ];
+
+
 
         $dataTemperature = $msg01Values->pluck('outdoortemperature');
         $dataHumidity = $msg01Values->pluck('outdoorhumidity');
@@ -138,7 +154,9 @@ class DashboardController extends Controller
                 'tendencySoilTemperature' => $tendencySoilTemperature,
                 'tendencySoilHumidity' => $tendencySoilHumidity,
                 'tendencySunLightUVI' => $tendencySunLightUVI,
-                'tendencySunLightVisible' => $tendencySunLightVisible
+                'tendencySunLightVisible' => $tendencySunLightVisible,
+                'location' => $location,
+                'id' => $id
             ]);
     }
 

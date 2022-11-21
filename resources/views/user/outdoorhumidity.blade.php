@@ -27,7 +27,6 @@
 
     @push('scripts1')
         <script>
-
             var options = {
                 series: [
                     @foreach($all as $one)

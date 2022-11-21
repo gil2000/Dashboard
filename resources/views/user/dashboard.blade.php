@@ -20,6 +20,11 @@
 
 
     <div class="row">
+        <div class="col-md-12 py-5">
+            <div id="map" style="height: 180px; border-radius: 10px">
+
+            </div>
+        </div>
         <div class="col-md-6">
             <div class="row h-100">
                 <div class="col-md-6 col-sm-12 mb-3">
@@ -588,8 +593,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 
 
 
@@ -598,6 +603,16 @@
 @push('scripts')
 
     <script>
+
+
+        var map = L.map('map').setView(@json($location), 14);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker(@json($location)).addTo(map)
+            .bindPopup();
 
          setInterval(function() {
              window.location.reload();

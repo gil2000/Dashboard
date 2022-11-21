@@ -36,7 +36,12 @@
     <link rel="stylesheet" href="{{ asset('libs/fontawesome/css/all.min.css') }}">
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin=""></script>
     <!-- Page CSS -->
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
@@ -212,7 +217,6 @@
 <!-- Page JS -->
 <script src="{{ asset('libs/fontawesome/js/all.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
 @livewireScripts
 @stack('scripts')
 @stack('scripts1')
