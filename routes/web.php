@@ -9,6 +9,11 @@ use App\Http\Controllers\WindDirectionController;
 use App\Http\Controllers\OutdoorHumidityController;
 use App\Http\Controllers\PrecipitationController;
 use App\Http\Controllers\BarometricPressureController;
+use App\Http\Controllers\SoilHumidityController;
+use App\Http\Controllers\SoilTemperatureController;
+use App\Http\Controllers\SunLightVisibleController;
+use App\Http\Controllers\SunLightUVIndexController;
+use App\Http\Controllers\WindSpeedController;
 
 /*
 |------------------------clear
@@ -45,4 +50,11 @@ Route::get('outdoortemperature', [OutdoorTemperatureController::class, 'index'])
 Route::get('winddirection', [WindDirectionController::class, 'index'])->name('winddirection');
 Route::get('outdoorhumidity', [OutdoorHumidityController::class, 'index'])->name('outdoorhumidity');
 Route::get('precipitation', [PrecipitationController::class, 'index'])->name('precipitation');
+Route::get('soilhumidity', [SoilHumidityController::class, 'index'])->name('soilhumidity');
 Route::get('barometricpressure', [BarometricPressureController::class, 'index'])->name('barometricpressure');
+Route::get('soiltemperature', [SoilTemperatureController::class, 'index'])->name('soiltemperature');
+Route::get('sunlightvisible', [SunLightVisibleController::class, 'index'])->name('sunlightvisible');
+Route::get('sunlightuvindex', [SunLightUVIndexController::class, 'index'])->name('sunlightuvindex');
+Route::get('windspeed', [WindSpeedController::class, 'index'])->name('windspeed');
+
+

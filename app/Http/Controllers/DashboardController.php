@@ -130,7 +130,6 @@ class DashboardController extends Controller
         $tendencySunLightVisible = ViewCurrentValueMSG1::calc($first, $last);
 
 
-
         return view('user.dashboard')
             ->with([
                 'labels01' => $labels01,

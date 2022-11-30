@@ -95,43 +95,43 @@
                 <li class="menu-item">
                     <a href="{{ route('outdoortemperature') }}" class="menu-link">
                         <i class="fa-solid fa-temperature-three-quarters fa-xl"></i>
-                        <div class="m-2">Outdoor Temperature</div>
+                        <div class="m-1">Outdoor Temperature</div>
                     </a>
                     <a href="{{ route('outdoorhumidity') }}" class="menu-link">
                         <i class="fa-solid fa-droplet fa-xl"></i>
-                        <div class="m-2">Outdoor Humidity</div>
+                        <div class="m-1">Outdoor Humidity</div>
                     </a>
                     <a href="{{ route('precipitation') }}" class="menu-link">
                         <i class="fa-solid fa-cloud-rain fa-xl"></i>
-                        <div class="m-2">Precipitation</div>
+                        <div class="m-1">Precipitation</div>
                     </a>
                     <a href="{{ route('barometricpressure') }}" class="menu-link">
                         <i class="fa-solid fa-gauge fa-xl"></i>
-                        <div class="m-2">Barometric Pressure</div>
+                        <div class="m-1">Barometric Pressure</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('soilhumidity') }}" class="menu-link">
                         <i class="fa-solid fa-faucet-drip fa-xl"></i>
-                        <div class="m-2">Soil Humidity</div>
+                        <div class="m-1">Soil Humidity</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('soiltemperature') }}" class="menu-link">
                         <i class="fa-solid fa-temperature-three-quarters fa-xl"></i>
-                        <div class="m-2">Soil Temperature</div>
+                        <div class="m-1">Soil Temperature</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('sunlightuvindex') }}" class="menu-link">
                         <i class="fa-solid fa-sun fa-xl"></i>
-                        <div class="m-2">Sun Light UVI</div>
+                        <div class="m-1">Sun Light UVI</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('sunlightvisible') }}" class="menu-link">
                         <i class="fa-regular fa-sun fa-xl"></i>
-                        <div class="m-2">Sun Light Visible</div>
+                        <div class="m-1">Sun Light Visible</div>
                     </a>
-                    <a href="" class="menu-link">
+                    <a href="{{ route('windspeed') }}" class="menu-link">
                         <i class="fa-solid fa-wind fa-xl"></i>
-                        <div class="m-2">Wind Speed</div>
+                        <div class="m-1">Wind Speed</div>
                     </a>
                     <a href="{{ route('winddirection') }}" class="menu-link">
                         <i class="fa-solid fa-location-arrow fa-xl"></i>
-                        <div class="m-2">Wind Direction</div>
+                        <div class="m-1">Wind Direction</div>
                     </a>
                 </li>
 

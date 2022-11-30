@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="h1 justify-content-center mb-5 border border-1 rounded-3 p-3 shadow d-flex">
-        <p class="my-auto me-3">Dashboard {{ \Carbon\Carbon::now()->toDateString() }}</p>
+    <div class="h1 mb-3 p-2 d-flex justify-content-between">
+        <p class="my-auto me-3">Overview → <span class="small">{{ \Carbon\Carbon::now()->toDateString() }}</span> </p>
         <div class="dropdown my-auto me-3">
             <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Station

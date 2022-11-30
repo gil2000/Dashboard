@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="h1 justify-content-center my-3 mb-5 border border-1 rounded-3 p-3 shadow d-flex">
-        <p class="my-auto me-3">Barometric Pressure </p>
-    </div>
+    <h1 class="mb-5">Barometric Pressure</h1>
 
     <div class="card text-dark mb-3 shadow">
         <div class="d-flex justify-content-between">
@@ -32,7 +30,7 @@
                 series: [
                         @foreach($all as $one)
                     {
-                        name:  'Barometric Pressure station- {{ $one['id'] }}',
+                        name:  'Barometric Pressure Station - {{ $one['id'] }}',
                         data:  @json($one['var'])
                     },
                     @endforeach
@@ -62,7 +60,7 @@
                     }
                 },
                 legend: {
-                    position: 'top',
+                    position: 'bottom',
                 }
             };
 
