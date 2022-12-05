@@ -13,6 +13,7 @@ class OutdoorHumidityController extends Controller
 
         $stations = Station::all();
 
+
         foreach ($stations as $station) {
             $var = [];
             ${'values'.$station->id} = OutdoorHumidity::all()
@@ -35,6 +36,7 @@ class OutdoorHumidityController extends Controller
                 'var' => $var,
             ];
         }
+
 
 //      foreach ($values as $value => $infos) {
 //          $labels = $value;

@@ -14,6 +14,8 @@ class BarometricPressureController extends Controller
 
         $stations = Station::all();
 
+
+
         foreach ($stations as $station) {
             $var = [];
             ${'values'.$station->id} = DB::table('barometricpressure')

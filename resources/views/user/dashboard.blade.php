@@ -43,9 +43,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            @if($dataTemperature->last() == null)
-                                <div>No data available</div>
-                            @else
                                 <div class="d-flex justify-content-between">
                                     <div class="card-info">
                                         <h4 class="card-title mb-2">{{ $dataTemperature->last() }}
@@ -62,7 +59,6 @@
                     </span>
                                     </div>
                                 </div>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -155,8 +151,8 @@
                                             text-success
                                         @elseif($tendencyPrecipitation == 0)
                                             text-info
-                                        @else t
-                                            ext-danger
+                                        @else
+                                        text-danger
                                         @endif">
                                         @if($tendencyBarometricPressure > 0 )
                                             (+{{ $tendencyBarometricPressure }}%)

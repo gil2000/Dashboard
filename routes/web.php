@@ -16,8 +16,6 @@ use App\Http\Controllers\SunLightUVIndexController;
 use App\Http\Controllers\WindSpeedController;
 
 /*
-|------------------------clear
-clear--------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |

@@ -28,14 +28,11 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
-            ->select('valor', 'created_at', 'idEstacao')
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
-
-
+            ->values();
         return $temperature;
 
     }
@@ -47,7 +44,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
-            ->select('valor', 'created_at', 'idEstacao')
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -66,7 +63,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
-            ->select('valor', 'created_at', 'idEstacao')
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -87,6 +84,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -105,6 +103,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -123,6 +122,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -141,6 +141,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -159,6 +160,7 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
@@ -177,11 +179,11 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $windDirection;
@@ -195,11 +197,11 @@ class Api extends Controller
             ->take(10)
             //->whereDate('created_at', Carbon::today())
             ->where('idEstacao', $id)
+            ->select('valor', 'created_at')
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $windSpeed;
