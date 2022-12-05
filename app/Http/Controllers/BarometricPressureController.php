@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\BarometricPressure;
 use App\Models\Station;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class BarometricPressureController extends Controller
@@ -16,7 +16,8 @@ class BarometricPressureController extends Controller
 
         foreach ($stations as $station) {
             $var = [];
-            ${'values'.$station->id} = BarometricPressure::all()
+            ${'values'.$station->id} = DB::table('barometricpressure')
+                ->get()
                 ->where('idEstacao', '=', $station->id)
                 ->groupBy(function ($date) {
                     return Carbon::parse($date->created_at)->format('Y-m-d');

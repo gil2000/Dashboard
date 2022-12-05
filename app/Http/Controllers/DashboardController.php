@@ -86,7 +86,6 @@ class DashboardController extends Controller
         $dataSunLightUVI = $msg01Values->pluck('sunlightuvindex');
         $dataSunLightVisible = $msg01Values->pluck('sunlightvisible');
 
-
         $labels01 = $msg01Values->pluck('created_at');
         $labels02 = $msg02Values->pluck('created_at');
 

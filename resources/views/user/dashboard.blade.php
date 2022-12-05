@@ -43,21 +43,26 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <div class="card-info">
-                                    <h4 class="card-title mb-2">{{ $dataTemperature->last() }}
-                                        °</h4>
-                                    <small class="me-3">Last Day Analytics- </small>
-                                    <small
-                                        class="@if($tendencyTemperature > 0) text-success @elseif($tendencyTemperature == 0) text-info @else text-danger  @endif">@if($tendencyTemperature > 0 ) (+{{ $tendencyTemperature }}%) @else() ({{ $tendencyTemperature }}%) @endif
-                                    </small>
+                            @if($dataTemperature->last() == null)
+                                <div>No data available</div>
+                            @else
+                                <div class="d-flex justify-content-between">
+                                    <div class="card-info">
+                                        <h4 class="card-title mb-2">{{ $dataTemperature->last() }}
+                                            °</h4>
+                                        <small class="me-3">Last Day Analytics- </small>
+                                        <small
+                                            class="@if($tendencyTemperature > 0) text-success @elseif($tendencyTemperature == 0) text-info @else text-danger  @endif">@if($tendencyTemperature > 0 ) (+{{ $tendencyTemperature }}%) @else() ({{ $tendencyTemperature }}%) @endif
+                                        </small>
+                                    </div>
+
+                                    <div class="card-icon">
+                    <span class="badge bg-label-primary rounded">
+                     <i class="fa-solid fa-temperature-three-quarters   "></i>
+                    </span>
+                                    </div>
                                 </div>
-                                <div class="card-icon">
-                <span class="badge bg-label-primary rounded">
-                 <i class="fa-solid fa-temperature-three-quarters   "></i>
-                </span>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

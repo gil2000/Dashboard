@@ -18,4 +18,8 @@ class Station extends Model
         }
         return false;
     }
+
+    public static function getData(){
+
+    }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Station;
 use Illuminate\Database\Eloquent\Model;
 
 class BarometricPressure extends Model
 {
     protected $table = 'barometricpressure';
+
+
 }
