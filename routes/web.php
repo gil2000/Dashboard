@@ -30,7 +30,7 @@ Route::get('/', function () {
     return view('index')->with(['stations' => $stations]);
 });
 
-//Route::resource('/admin/users', UserController::class);
+
 
 Route::prefix('user')->middleware('auth', 'verified')->name('user.')->group(function (){
     Route::get('profile', Profile::class)->name('profile');

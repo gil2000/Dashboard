@@ -16,9 +16,18 @@ use App\Http\Controllers\Api\Api;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/login', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('login', [Api::class, 'login']);
+Route::post('register', [Api::class, 'register']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/logout', [Api::class, 'logout']);
+});
+
 
 Route::get('temperature/{id}', [Api::class, 'getTemperature']);
 Route::get('humidity/{id}', [Api::class, 'getHumidity']);

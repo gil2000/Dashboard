@@ -3,16 +3,71 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\BarometricPressure;
-use App\Models\OutdoorTemperature;
-use App\Models\ViewCurrentValueMSG1;
-use Carbon\Carbon;
-use App\Models\Station;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function Symfony\Component\String\s;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class Api extends Controller
 {
+
+    public function register(Request $request) {
+        $fields = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|unique:users,email',
+            'password' => 'required|string|confirmed'
+        ]);
+
+        $user = User::create([
+            'name' => $fields['name'],
+            'email' => $fields['email'],
+            'password' => bcrypt($fields['password'])
+        ]);
+
+        $token = $user->createToken('myapptoken')->plainTextToken;
+
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
+
+        return response($response, 201);
+    }
+
+    public function login(Request $request) {
+        $fields = $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string'
+        ]);
+
+        // Check email
+        $user = User::where('email', $fields['email'])->first();
+
+        // Check password
+        if(!$user || !Hash::check($fields['password'], $user->password)) {
+            return response([
+                'message' => 'Bad creds'
+            ], 401);
+        }
+
+        $token = $user->createToken('myapptoken')->plainTextToken;
+
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
+
+        return response($response, 201);
+    }
+
+    public function logout(Request $request) {
+        auth()->user()->tokens()->delete();
+
+        return [
+            'message' => 'Logged out'
+        ];
+    }
 
     public function getStation() {
         return DB::table('estacao')
@@ -48,8 +103,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $humidity;
@@ -88,8 +142,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $precipitation;
@@ -107,8 +160,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $soilHumidity;
@@ -126,8 +178,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $soilTemperature;
@@ -145,8 +196,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
+            ->values();
 
 
         return $sunLightUVI;
@@ -164,9 +214,7 @@ class Api extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->reverse()
-            ->values()
-            ->toJson();
-
+            ->values();
 
         return $sunLightVisible;
 
@@ -207,4 +255,6 @@ class Api extends Controller
         return $windSpeed;
 
     }
+
+
 }
