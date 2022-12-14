@@ -65,15 +65,30 @@
                     @foreach($all as $one)
                 {
                     name:  'Temperature Station - {{ $one['id'] }}',
-                    data:  @json($one['var'])
+                    data:  @json($one['var']),
+                    type: 'bar',
+                },
+                    @endforeach
+                    @foreach($all as $one)
+                {
+                    name:  'Temperature Max by Day',
+                    data:  @json($one['max']),
+                    type: 'line',
+                },
+                    @endforeach
+                    @foreach($all as $one)
+                {
+                    name:  'Temperature Min by Day',
+                    data:  @json($one['min']),
+                    type: 'line',
                 },
                 @endforeach
             ],
 
             chart: {
                 id: 'area-datetime',
-                type: 'line',
                 height: 350,
+
             },
             dataLabels: {
                 enabled: false

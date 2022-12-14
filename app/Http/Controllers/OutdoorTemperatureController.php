@@ -15,26 +15,52 @@ class OutdoorTemperatureController extends Controller
 
         foreach ($stations as $station) {
             $var = [];
+            $maxByDay = [];
+            $minByDay = [];
             ${'values'.$station->id} = OutdoorTemperature::all()
                 ->where('idEstacao', '=', $station->id)
                 ->groupBy(function ($date) {
                     return Carbon::parse($date->created_at)->format('Y-m-d');
                 });
 
+
             foreach (${'values'.$station->id} as ${'value'.$station->id} => ${'infos'.$station->id}) {
+
                 ${'labels'.$station->id} = ${'value'.$station->id};
                 ${'temp'.$station->id} = ${'infos'.$station->id}->pluck('valor')->avg();
                 ${'data'.$station->id} = round(${'temp'.$station->id}, 2);
+                ${'max'.$station->id} = ${'infos'.$station->id}->pluck('valor')->max();
+                ${'min'.$station->id} = ${'infos'.$station->id}->pluck('valor')->min();
 
-                $var[] = [${'labels'.$station->id}, ${'data'.$station->id}];
+
+                $var[] = [
+                    ${'labels'.$station->id},
+                    ${'data'.$station->id}
+                ];
+
+                $maxByDay[] = [
+                    ${'labels'.$station->id},
+                    ${'max'.$station->id}
+                ];
+
+                $minByDay[] = [
+                    ${'labels'.$station->id},
+                    ${'min'.$station->id}
+                ];
+
+
             }
             $id = $station->id;
-
             $all[] = [
                 'id' => $id,
                 'var' => $var,
+                'max' => $maxByDay,
+                'min' => $minByDay
             ];
         }
+
+
+
 
 //        $values01 = OutdoorTemperature::all()
 //            ->where('idEstacao', '=', 1)
