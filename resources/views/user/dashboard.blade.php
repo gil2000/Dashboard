@@ -21,14 +21,50 @@
 
     <div class="row">
         <div class="col-md-12 py-5">
-            <div id="map" style="height: 180px; border-radius: 10px">
+            <div id="map" class="border-dark border border-1" style="height: 180px; border-radius: 10px">
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-header ">Risco de Cheias</h5>
+                    <div class="dropdown my-auto me-3">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Last Values
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="myChart10" class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-header ">Risco de Incêndio</h5>
+                    <div class="dropdown my-auto me-3">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Last Values
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId" style="">
+                            <a class="dropdown-item" href="javascript:void(0);">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="myChart11" class="card-body">
+                </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="row h-100">
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Outdoor Temperature</h6>
                             <div class="dropdown">
@@ -46,7 +82,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="card-info">
                                         <h4 class="card-title mb-2">{{ $dataTemperature->last() }}
-                                            °</h4>
+                                            °C</h4>
                                         <small class="me-3">Last Day Analytics- </small>
                                         <small
                                             class="@if($tendencyTemperature > 0) text-success @elseif($tendencyTemperature == 0) text-info @else text-danger  @endif">@if($tendencyTemperature > 0 ) (+{{ $tendencyTemperature }}%) @else() ({{ $tendencyTemperature }}%) @endif
@@ -63,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Outdoor Humidity</h6>
                             <div class="dropdown">
@@ -95,7 +131,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Precipitation</h6>
                             <div class="dropdown">
@@ -112,7 +148,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <div class="card-info">
-                                    <h4 class="card-title mb-2">{{ $dataPrecipitation->last() }} mm/m²</h4>
+                                    <h4 class="card-title mb-2">{{ $dataPrecipitation->last() }} mm</h4>
                                     <small class="me-3">Last Day Analytics- </small>
                                     <small class="@if($tendencyPrecipitation > 0) text-success @elseif($tendencyPrecipitation == 0) text-info @else text-danger  @endif">@if($tendencyPrecipitation > 0 ) (+{{ $tendencyPrecipitation }}%) @else() ({{ $tendencyPrecipitation }}%) @endif </small>
                                 </div>
@@ -126,7 +162,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Barometric Pressure</h6>
                             <div class="dropdown">
@@ -171,7 +207,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Soil Humidity</h6>
                             <div class="dropdown">
@@ -215,7 +251,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Soil Temperature</h6>
                             <div class="dropdown">
@@ -233,7 +269,7 @@
                             <div class="d-flex justify-content-between">
                                 <div class="card-info">
                                     <h4 class="card-title mb-2">{{ $dataSoilTemperature->last() }}
-                                        °</h4>
+                                        °C</h4>
                                     <small class="me-3">Last Day Analytics- </small>
                                     <small class="
                                         @if($tendencySoilTemperature > 0)
@@ -260,7 +296,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Sun Light UVI</h6>
                             <div class="dropdown">
@@ -305,7 +341,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Sun Light Visible</h6>
                             <div class="dropdown">
@@ -350,7 +386,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Wind Speed</h6>
                             <div class="dropdown">
@@ -394,7 +430,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <div class="card">
+                    <div class="card border-dark border border-1">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h6 class="card-title m-0 me-2">Wind Direction</h6>
                             <div class="dropdown">
@@ -427,7 +463,7 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-12">
-                <div id="temperature" class="card text-dark mb-3 shadow ">
+                <div class="card text-dark mb-3 shadow border-dark border border-1 ">
                     <div class="d-flex justify-content-between">
                         <h5 class="card-header ">Temperature</h5>
                         <div class="dropdown my-auto me-3">
@@ -447,7 +483,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="card text-dark mb-3 shadow">
+                <div class="card text-dark mb-3 shadow border-dark border border-1">
                     <div class="d-flex justify-content-between">
                         <h5 class="card-header ">Humidity</h5>
                         <div class="dropdown my-auto me-3">
@@ -467,7 +503,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="card text-dark mb-3 shadow">
+                <div class="card text-dark mb-3 shadow border-dark border border-1">
                     <div class="d-flex justify-content-between">
                         <h5 class="card-header ">Precipitation</h5>
                         <div class="dropdown my-auto me-3">
@@ -487,7 +523,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">WindSpeed</h5>
                     <div class="dropdown my-auto me-3">
@@ -505,7 +541,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">Barometric Pressure</h5>
                     <div class="dropdown my-auto me-3">
@@ -523,7 +559,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">Soil Humidity</h5>
                     <div class="dropdown my-auto me-3">
@@ -541,7 +577,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">Soil Temperature</h5>
                     <div class="dropdown my-auto me-3">
@@ -559,7 +595,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">Sun Light UVI</h5>
                     <div class="dropdown my-auto me-3">
@@ -577,7 +613,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card text-dark mb-3 shadow">
+            <div class="card text-dark mb-3 shadow border-dark border border-1">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-header ">Sun Light Visible</h5>
                     <div class="dropdown my-auto me-3">
@@ -1004,6 +1040,119 @@
             }
         };
 
+        const options10 = {
+            series: [76],
+            chart: {
+                type: 'radialBar',
+                offsetY: -20,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {
+                radialBar: {
+                    startAngle: -90,
+                    endAngle: 90,
+                    track: {
+                        background: "#e7e7e7",
+                        strokeWidth: '97%',
+                        margin: 5, // margin is in pixels
+                        dropShadow: {
+                            enabled: true,
+                            top: 2,
+                            left: 0,
+                            color: '#999',
+                            opacity: 1,
+                            blur: 2
+                        }
+                    },
+                    dataLabels: {
+                        name: {
+                            show: false
+                        },
+                        value: {
+                            offsetY: -2,
+                            fontSize: '22px'
+                        }
+                    }
+                }
+            },
+            grid: {
+                padding: {
+                    top: -10
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'light',
+                    shadeIntensity: 0.4,
+                    inverseColors: false,
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 50, 53, 91]
+                },
+            },
+            labels: ['Average Results'],
+        };
+
+        const options11 = {
+            series: [10],
+            chart: {
+                type: 'radialBar',
+                offsetY: -20,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            colors: ['#ea2e0d', '#0084ff', '#39539E', '#0077B5'],
+            plotOptions: {
+                radialBar: {
+                    startAngle: -90,
+                    endAngle: 90,
+                    track: {
+                        background: "#e7e7e7",
+                        strokeWidth: '97%',
+                        margin: 5, // margin is in pixels
+                        dropShadow: {
+                            enabled: true,
+                            top: 2,
+                            left: 0,
+                            color: '#999',
+                            opacity: 1,
+                            blur: 2
+                        }
+                    },
+                    dataLabels: {
+                        name: {
+                            show: false
+                        },
+                        value: {
+                            offsetY: -2,
+                            fontSize: '22px'
+                        }
+                    }
+                }
+            },
+            grid: {
+                padding: {
+                    top: -10
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'light',
+                    shadeIntensity: 0.4,
+                    inverseColors: false,
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 50, 53, 91]
+                },
+            },
+            labels: ['Average Results'],
+        };
+
         const myChart1 = new ApexCharts(document.getElementById('myChart1'), options);
         myChart1.render();
 
@@ -1031,69 +1180,11 @@
         const myChart9 = new ApexCharts(document.getElementById('myChart9'), options9);
         myChart9.render();
 
-        {{--const data = {--}}
-        {{--    labels: @json($labels01) ,--}}
-        {{--    datasets: [{--}}
-        {{--        label: '',--}}
-        {{--        data: @json($dataTemperature) ,--}}
-        {{--        backgroundColor: [--}}
-        {{--            'rgb(255,83,31)',--}}
-        {{--        ],--}}
-        {{--        borderColor: [--}}
-        {{--            'rgb(255,83,31)',--}}
+        const mychart10 = new ApexCharts(document.getElementById('myChart10'), options10);
+        mychart10.render();
 
-        {{--        ],--}}
-        {{--        borderWidth: 3--}}
-        {{--    }]--}}
-
-
-        {{--};--}}
-
-        {{--//config--}}
-        {{--const config = {--}}
-        {{--    type: 'line',--}}
-        {{--    data,--}}
-        {{--    options: {--}}
-        {{--        plugins: {--}}
-        {{--            legend: {--}}
-        {{--                display: false--}}
-        {{--            }--}}
-        {{--        },--}}
-        {{--        scales: {--}}
-        {{--            x: {--}}
-        {{--                title: {--}}
-        {{--                    display: true,--}}
-        {{--                    text: 'Time'--}}
-        {{--                }--}}
-        {{--            },--}}
-        {{--            y: {--}}
-        {{--                title: {--}}
-        {{--                    display: true,--}}
-        {{--                    text: '°C'--}}
-        {{--                }--}}
-        {{--            }--}}
-        {{--        }--}}
-        {{--    }--}}
-        {{--}--}}
-        {{--//render init--}}
-        {{--const myChart1 = new Chart(--}}
-        {{--    document.getElementById('myChart1'),--}}
-        {{--    config--}}
-        {{--);--}}
-
-        {{--var url = "http://agricity.test/api/teste/1"--}}
-        {{--// function to update our chart--}}
-        {{--// var getData = function() {--}}
-        {{--//     $.getJSON(url, data).done(function(response) {--}}
-        {{--//--}}
-        {{--//         myChart1.data.labels = response.labelsTemperature;--}}
-        {{--//         myChart1.data.datasets[0].data = response.dataTemperature;--}}
-        {{--//         myChart1.update();--}}
-        {{--//     });--}}
-        {{--// };--}}
-        {{--//--}}
-        {{--// setInterval(getData, 1000 * 60 * 2);--}}
-        {{--//--}}
+        const mychart11 = new ApexCharts(document.getElementById('myChart11'), options11);
+        mychart11.render();
 
 
     </script>

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\SoilTemperature;
 use App\Models\Station;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class SoilTemperatureController extends Controller
@@ -16,8 +17,11 @@ class SoilTemperatureController extends Controller
 
         foreach ($stations as $station) {
             $var = [];
-            ${'values'.$station->id} = SoilTemperature::all()
+            $range = [];
+            $day = [];
+            ${'values'.$station->id} = DB::table('soiltemperature')
                 ->where('idEstacao', '=', $station->id)
+                ->get()
                 ->groupBy(function ($date) {
                     return Carbon::parse($date->created_at)->format('Y-m-d');
                 });
@@ -26,8 +30,15 @@ class SoilTemperatureController extends Controller
                 ${'labels'.$station->id} = ${'value'.$station->id};
                 ${'temp'.$station->id} = ${'infos'.$station->id}->pluck('valor')->avg();
                 ${'data'.$station->id} = round(${'temp'.$station->id}, 2);
+                ${'max' . $station->id} = ${'infos' . $station->id}->pluck('valor')->max();
+                ${'min' . $station->id} = ${'infos' . $station->id}->pluck('valor')->min();
 
                 $var[] = [${'labels'.$station->id}, ${'data'.$station->id}];
+
+                $range[] = [
+                    [${'min' . $station->id}, ${'max' . $station->id}],
+                    'day' => ${'value' . $station->id}
+                ];
             }
             $id = $station->id;
 
@@ -35,10 +46,16 @@ class SoilTemperatureController extends Controller
                 'id' => $id,
                 'var' => $var,
             ];
+            $temprange[] = [
+                'id' => $id,
+                'range' => $range,
+                'day' => $day,
+            ];
         }
 
         return view('user.soiltemperature')->with([
-            'all' => $all
+            'all' => $all,
+            'temprange' => $temprange,
         ]);
     }
 }

@@ -32,27 +32,35 @@ Route::get('/', function () {
 
 
 
-Route::prefix('user')->middleware('auth', 'verified')->name('user.')->group(function (){
+Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function (){
     Route::get('profile', Profile::class)->name('profile');
 });
 
-Route::prefix('admin')->middleware(['auth', 'auth.isAdmin', 'verified'])->name('admin.')->group(function (){
+Route::prefix('admin')->middleware(['auth', 'role:admin', 'verified'])->name('admin.')->group(function (){
    Route::resource('/users', UserController::class);
 });
 
 Route::get('dashboard/{id}', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('TemperatureDashboard', [DashboardController::class, 'index'])->name('temperatureDashboard');
+
+Route::middleware(['auth', 'role:base,plus,admin', 'verified'])->group(function () {
+    Route::get('outdoortemperature', [OutdoorTemperatureController::class, 'index'])->name('outdoortemperature');
+    Route::get('outdoorhumidity', [OutdoorHumidityController::class, 'index'])->name('outdoorhumidity');
+    Route::get('precipitation', [PrecipitationController::class, 'index'])->name('precipitation');
+    Route::get('windspeed', [WindSpeedController::class, 'index'])->name('windspeed');
+});
+
+Route::middleware(['auth', 'role:plus,admin', 'verified'])->group(function () {
+    Route::get('winddirection', [WindDirectionController::class, 'index'])->name('winddirection');
+    Route::get('soilhumidity', [SoilHumidityController::class, 'index'])->name('soilhumidity');
+    Route::get('barometricpressure', [BarometricPressureController::class, 'index'])->name('barometricpressure');
+    Route::get('soiltemperature', [SoilTemperatureController::class, 'index'])->name('soiltemperature');
+    Route::get('sunlightvisible', [SunLightVisibleController::class, 'index'])->name('sunlightvisible');
+    Route::get('sunlightuvindex', [SunLightUVIndexController::class, 'index'])->name('sunlightuvindex');
+});
 
 
-Route::get('outdoortemperature', [OutdoorTemperatureController::class, 'index'])->name('outdoortemperature');
-Route::get('winddirection', [WindDirectionController::class, 'index'])->name('winddirection');
-Route::get('outdoorhumidity', [OutdoorHumidityController::class, 'index'])->name('outdoorhumidity');
-Route::get('precipitation', [PrecipitationController::class, 'index'])->name('precipitation');
-Route::get('soilhumidity', [SoilHumidityController::class, 'index'])->name('soilhumidity');
-Route::get('barometricpressure', [BarometricPressureController::class, 'index'])->name('barometricpressure');
-Route::get('soiltemperature', [SoilTemperatureController::class, 'index'])->name('soiltemperature');
-Route::get('sunlightvisible', [SunLightVisibleController::class, 'index'])->name('sunlightvisible');
-Route::get('sunlightuvindex', [SunLightUVIndexController::class, 'index'])->name('sunlightuvindex');
-Route::get('windspeed', [WindSpeedController::class, 'index'])->name('windspeed');
+
+
+
 
 

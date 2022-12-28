@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OutdoorHumidity;
 use App\Models\Station;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class OutdoorHumidityController extends Controller
@@ -14,10 +15,13 @@ class OutdoorHumidityController extends Controller
         $stations = Station::all();
 
 
+
+
         foreach ($stations as $station) {
             $var = [];
-            ${'values'.$station->id} = OutdoorHumidity::all()
+            ${'values'.$station->id} = DB::table('outdoorhumidity')
                 ->where('idEstacao', '=', $station->id)
+                ->get()
                 ->groupBy(function ($date) {
                     return Carbon::parse($date->created_at)->format('Y-m-d');
                 });

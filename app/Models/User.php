@@ -50,17 +50,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     public function roles() {
-        return $this->belongsToMany('App\Models\Role');
+        return $this->belongsToMany('App\Models\Role', 'role_user');
     }
 
 
     //Check if the user has a role ($role) and returns a bool
-    public function hasAnyRole($role) {
+    public function hasAnyRole(string $role) {
         return null !== $this->roles()->where('name', $role)->first();
     }
 
     //Check if the user has any given rule ($role) and returns a bool
-    public function hasAnyRoles( array $role) {
+    public function hasAnyRoles(array $role) {
         return null !== $this->roles()->whereIn('name', $role)->first();
     }
 
@@ -70,5 +70,17 @@ class User extends Authenticatable implements MustVerifyEmail
             : static::query()->where('id', 'like', '%'.$search.'%')
                 ->orWhere('name', 'like', '%'.$search.'%')
                 ->orWhere('email', 'like', '%'.$search.'%');
+    }
+
+    public function isAdmin()
+    {
+        if($this->role_id === 6)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
