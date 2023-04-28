@@ -9,6 +9,6 @@
                 left: 55%;
                 -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%)";
-        class="align-items-center">Welcome to Agricity</h1>
+        class="align-items-center">Welcome to Agricity 2</h1>
 
 @endsection
